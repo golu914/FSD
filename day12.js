@@ -1,0 +1,1 @@
+console.log("Day 12, Puzzle 1!")
