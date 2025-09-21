@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <p id="para">this is para 1</p>
+    <button onclick="changetext()">change text</button>
+    <script>
+        function changetext() {
+            let para = document.getElementById("para")
+           // console.log(para)
+            para.innerText = "hey this changed"
+            //console.log(para.getAttribute("id"))
+            para.setAttribute("id","para2")
+        }
+    </script>
+</body>
+
+</html>

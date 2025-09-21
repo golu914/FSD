@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>actor profiles</title>
+    <style>
+        .profile {
+            border: 1px solid #ccc;
+            padding: 20px;
+            width: 600px;
+            text-align: center;
+            margin-bottom: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            ;
+        }
+
+        .photo {
+            max-height: 300px;
+            width: 300px;
+            max-width: 500px;
+            border-radius: 50%;
+        }
+
+        button {
+            margin: 5px;
+            padding: 10px 15px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="profile">
+        <img src=https://upload.wikimedia.org/wikipedia/commons/thumb/2/23/Robert_Downey_Jr._2014_Comic-Con.jpg/500px-Robert_Downey_Jr._2014_Comic-Con.jpg
+            alt="Robert Downey jr" class="photo">
+        <h1 class="name">Robert Downey jr</h1>
+        <p class="age">Age: 60</p>
+        <p class="profession">Profession: Actor</p>
+
+    </div>
+    <button onclick="showProfile(0)">Chris Hemsworth</button>
+    <button onclick="showProfile(1)">Emma Stone</button>
+    <button onclick="showProfile(2)">Gal Gadot</button>
+    <button onclick="showProfile(3)">Rayan Reynold</button>
+    <button onclick="showProfile(4)">Leonardo DiCaprio</button>
+    <button onclick="showProfile(5)">Scarlett Johansson</button>
+    <button onclick="showProfile(6)">Dwayne Johnson</button>
+    <button onclick="showProfile(7)">Jennifer Lawrence</button>
+    <button onclick="showProfile(8)">Emma Watson</button>
+    <button onclick="showProfile(9)">Christian Bale</button>
+    <script>
+        let buttons = document.querySelectorAll("button")
+        let profile = document.querySelector(".profile")
+        let photo = document.querySelector(".photo")
+        let name = document.querySelector(".name")
+        let age = document.querySelector(".age")
+        let profession = document.querySelector(".profession")
+       
+
+        let actors = [
+            {
+                name: "Chris Hemsworth",
+                age: 42,
+                profession: "Actor",
+
+                photo: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/Chris_Hemsworth_by_Gage_Skidmore_3.jpg/500px-Chris_Hemsworth_by_Gage_Skidmore_3.jpg"
+            },
+            {
+                name: "Emma Stone",
+                age: 58,
+                profession: "Actress",
+
+                photo: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9b/Emma_Stone_at_the_2025_Cannes_Film_Festival_03_%28cropped%29.jpg/500px-Emma_Stone_at_the_2025_Cannes_Film_Festival_03_%28cropped%29.jpg"
+            },
+            {
+                name: "Gal Gadot",
+                age: 40,
+                profession: "Actress",
+
+                photo: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e6/Gal_Gadot_for_Revlon.png/500px-Gal_Gadot_for_Revlon.png"
+            },
+            {
+                name: "Rayan Reynold",
+                age: 48,
+                profession: "Actor",
+
+                photo: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/14/Deadpool_2_Japan_Premiere_Red_Carpet_Ryan_Reynolds_%28cropped%29.jpg/500px-Deadpool_2_Japan_Premiere_Red_Carpet_Ryan_Reynolds_%28cropped%29.jpg"
+            },
+            {
+                name: "Leonardo DiCaprio",
+                age: 50,
+                profession: "Actor",
+
+                photo: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/Leonardo_DiCaprio_crop_%28cropped%29.jpg/500px-Leonardo_DiCaprio_crop_%28cropped%29.jpg"
+            },
+            {
+                name: "Scarlett Johansson",
+                age: 40,
+                profession: "Actress",
+
+                photo: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/Scarlett_Johansson-8588.jpg/500px-Scarlett_Johansson-8588.jpg"
+            },
+            {
+                name: "Dwayne Johnson",
+                age: 53,
+                profession: "Actor",
+
+                photo: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9d/Dwayne_Johnson-1809_%28cropped%29.jpg/500px-Dwayne_Johnson-1809_%28cropped%29.jpg"
+            },
+            {
+                name: "Jennifer Lawrence",
+                age: 35,
+                profession: "Actress",
+
+                photo: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/54/Jennifer_Lawrence_in_2016.jpg/500px-Jennifer_Lawrence_in_2016.jpg"
+            },
+            {
+                name: "Emma Watson",
+                age: 35,
+                profession: "Actress",
+
+                photo: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7f/Emma_Watson_2013.jpg/375px-Emma_Watson_2013.jpg"
+            },
+            {
+                name: "Christian Bale",
+                age: 51,
+                profession: "Actor",
+
+                photo: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0a/Christian_Bale-7837.jpg/500px-Christian_Bale-7837.jpg"
+            }
+        ]
+        function showProfile(index) {
+            let actor = actors[index]
+            photo.src = actor.photo
+            name.textContent = actor.name
+            age.textContent = "Age: " + actor.age
+            profession.textContent = "Profession: " + actor.profession
+
+        }
+    </script>
+</body>
+
+</html>
