@@ -1,0 +1,90 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    height: 100vh;
+}
+
+.editor-container {
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    height: 100%;
+    width: 100%;
+}
+
+/* Sidebar */
+.sidebar {
+    padding: 15px;
+    overflow-y: auto;
+    background: #f4f4f4;
+}
+/* Controls */
+.controls {
+    background: #dda757;
+    padding: 15px;
+    overflow-y: auto;
+}
+/* Thumbnails */
+.thumbnails img {
+    width: 100%;
+    margin: 5px 0;
+    cursor: pointer;
+    border: 2px solid transparent;
+}
+
+.thumbnails img:hover {
+    border: 2px solid #007bff;
+}
+
+/* Canvas */
+.canvas-area {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #ddd;
+}
+
+.canvas {
+    position: relative;
+    width: 80%;
+    max-width: 600px;
+}
+
+#main-image {
+    width: 100%;
+    display: block;
+}
+
+#overlay-text {
+    position: absolute;
+    top: 10%;
+    left: 10%;
+    background: transparent;
+    border: none;
+    color: white;
+    font-size: 20px;
+    outline: none;
+    resize: none;
+    width: 80%;
+    text-align: left;
+}
+.font-effects, .image-effects {
+    margin-bottom: 20px;
+    padding: 10px;
+    background: #e8cb97;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0,0,0,0.1);
+    margin-top: 45px;
+}
+button {
+    width: 50%;
+    padding: 10px;
+    margin-top: 10px;
+    border: none;
+    background: #007bff;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+}

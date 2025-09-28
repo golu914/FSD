@@ -6,11 +6,88 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>actor profiles</title>
     <style>
+        * {
+            transition: all 0.3s ease;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
         .profile {
-            border: 1px solid #ccc;
+            animation: fadeIn 0.8s ease-in;
+            background: linear-gradient(135deg, #6366f1, #a855f7);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .name {
+            color: #ffffff;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-top: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .age,
+        .profession {
+            color: #f8fafc;
+            font-family: 'Arial', sans-serif;
+            font-size: 18px;
+            margin: 10px 0;
+        }
+
+        .photo {
+            border: 5px solid #ffffff;
+            transition: transform 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .photo:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+        }
+
+        .buttons {
+            margin: 20px 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        button {
+            background: linear-gradient(145deg, #4f46e5, #7c3aed);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        button:hover {
+            background: linear-gradient(145deg, #7c3aed, #4f46e5);
+            transform: translateY(-2px);
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            background: #4f46e5;
+        }
+
+        .profile {
+            background-color: #a68febea;
+            border: 0.5px solid #a68febea;
             padding: 20px;
             width: 600px;
             text-align: center;
+            margin-left: 30%;
             margin-bottom: 20px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             border-radius: 10px;
@@ -24,10 +101,31 @@
             border-radius: 50%;
         }
 
+        .buttons {
+            text-align: center;
+            display: flexbox;
+        }
+
         button {
             margin: 5px;
             padding: 10px 15px;
             cursor: pointer;
+            background-color: #09021eea;
+            color: whitesmoke;
+            border: 0.5px solid #09021eea;
+            font-size: large;
+            font-weight: bold;
+            border-radius: 5px;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        button:hover {
+            background-color: #1e0c52ea;
+            border: 0.5px solid #1e0c52ea;
+            color: white;
+            transform: scale(1.1);
+            transition: 0.3s;
+            font-size: 20px;
         }
     </style>
 </head>
@@ -41,16 +139,19 @@
         <p class="profession">Profession: Actor</p>
 
     </div>
-    <button onclick="showProfile(0)">Chris Hemsworth</button>
-    <button onclick="showProfile(1)">Emma Stone</button>
-    <button onclick="showProfile(2)">Gal Gadot</button>
-    <button onclick="showProfile(3)">Rayan Reynold</button>
-    <button onclick="showProfile(4)">Leonardo DiCaprio</button>
-    <button onclick="showProfile(5)">Scarlett Johansson</button>
-    <button onclick="showProfile(6)">Dwayne Johnson</button>
-    <button onclick="showProfile(7)">Jennifer Lawrence</button>
-    <button onclick="showProfile(8)">Emma Watson</button>
-    <button onclick="showProfile(9)">Christian Bale</button>
+    <div class="buttons">
+        <button onclick="showProfile(0)">Chris Hemsworth</button>
+        <button onclick="showProfile(1)">Emma Stone</button>
+        <button onclick="showProfile(2)">Gal Gadot</button>
+        <button onclick="showProfile(3)">Rayan Reynold</button>
+        <button onclick="showProfile(4)">Leonardo DiCaprio</button>
+        <button onclick="showProfile(5)">Scarlett Johansson</button>
+        <button onclick="showProfile(6)">Dwayne Johnson</button>
+        <button onclick="showProfile(7)">Jennifer Lawrence</button>
+        <button onclick="showProfile(8)">Emma Watson</button>
+        <button onclick="showProfile(9)">Christian Bale</button>
+    </div>
+
     <script>
         let buttons = document.querySelectorAll("button")
         let profile = document.querySelector(".profile")
@@ -58,7 +159,7 @@
         let name = document.querySelector(".name")
         let age = document.querySelector(".age")
         let profession = document.querySelector(".profession")
-       
+
 
         let actors = [
             {

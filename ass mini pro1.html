@@ -1,0 +1,152 @@
+<!-- Basic HTML5 Document Structure -->
+    <!DOCTYPE html>
+    <html lang="en">
+
+    <head>
+        <!-- Meta tags for character encoding and responsive viewport -->
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Mini Photo Editor</title>
+        <!-- Link to external CSS file -->
+        <link rel="stylesheet" href="ass mini pro1.css">
+    </head>
+
+    <body>
+        <!-- Main container for the editor -->
+        <div class="editor-container">
+
+            <!-- Left Sidebar: Contains thumbnail images -->
+            <aside class="sidebar">
+                <h3>Images</h3>
+                <!-- Thumbnail container with sample images from Lorem Picsum -->
+                <div class="thumbnails">
+                    <img src="https://picsum.photos/300/200?random=1" alt="img1">
+                    <img src="https://picsum.photos/300/200?random=2" alt="img2">
+                    <img src="https://picsum.photos/300/200?random=3" alt="img3">
+                    <img src="https://picsum.photos/300/200?random=4" alt="img4">
+                    <img src="https://picsum.photos/300/200?random=5" alt="img5">
+                </div>
+            </aside>
+
+            <!-- Center Section: Main editing canvas -->
+            <main class="canvas-area">
+                <div class="canvas">
+                    <!-- Main image display area -->
+                    <img id="main-image" src="https://picsum.photos/300/200?random=1" alt="Main Image">
+                    <!-- Text overlay input area -->
+                    <textarea id="overlay-text" placeholder="Add text here"></textarea>
+                </div>
+            </main>
+
+            <!-- Right Panel: Control options for editing -->
+            <aside class="controls">
+                <!-- Font customization section -->
+                <div class="font-effects">
+                    <h3>Font Effects</h3>
+                    <!-- Font family selector -->
+                    <label for="font-face">Font Face</label><br>
+                    <label> <select id="font-face">
+                            <option value="Arial">Arial</option>
+                            <option value="Georgia">Georgia</option>
+                            <option value="Courier New">Courier New</option>
+                        </select>
+                    </label><br>
+                    <!-- Font size input -->
+                    <label for="font-size">Font Size</label><br>
+                    <label> <input type="number" id="font-size" value="20" min="10" max="72">
+                    </label><br>
+                    <!-- Text alignment options -->
+                    <label for="text-align">Alignment</label><br>
+                    <label><select id="text-align">
+                            <option value="left">Left</option>
+                            <option value="center">Center</option>
+                            <option value="right">Right</option>
+                        </select>
+                    </label><br>
+                </div>
+                <!-- Image filter effects section -->
+                <div class="image-effects">
+                    <h3>Image Effects</h3>
+                    <label><input type="radio" id="blur"> Blur</label><br>
+                    <label><input type="radio" id="grayscale"> Grayscale</label><br>
+                    <label><input type="radio" id="invert"> Invert</label><br>
+                    <label><input type="radio" id="overlay"> Dark Overlay</label><br>
+                </div>
+                <!-- Action buttons -->
+                <button id="apply">Apply</button>
+                <button id="reset">Reset</button>
+            </aside>
+        </div>
+
+        <script>
+            // DOM element selections
+            const thumbnails = document.querySelectorAll('.thumbnails img');
+            const mainImage = document.getElementById('main-image');
+            const overlayText = document.getElementById('overlay-text');
+
+            // Text control elements
+            const fontFace = document.getElementById('font-face');
+            const fontSize = document.getElementById('font-size');
+            const textAlign = document.getElementById('text-align');
+
+            // Filter control elements
+            const blur = document.getElementById('blur');
+            const grayscale = document.getElementById('grayscale');
+            const invert = document.getElementById('invert');
+            const overlay = document.getElementById('overlay');
+
+            // Button elements
+            const applyBtn = document.getElementById('apply');
+            const resetBtn = document.getElementById('reset');
+
+            // Event listener for thumbnail clicks - changes main image
+            thumbnails.forEach(img => {
+                img.addEventListener('click', () => {
+                    mainImage.src = img.src;
+                });
+            });
+
+            // Event listener for apply button - applies all selected effects
+            applyBtn.addEventListener('click', () => {
+                // Apply text formatting
+                overlayText.style.fontFamily = fontFace.value;
+                overlayText.style.fontSize = fontSize.value + "px";
+                overlayText.style.textAlign = textAlign.value;
+
+                // Build and apply image filters
+                let filters = "";
+                if (blur.checked) filters += " blur(3px)";
+                if (grayscale.checked) filters += " grayscale(100%)";
+                if (invert.checked) filters += " invert(100%)";
+
+                mainImage.style.filter = filters;
+                            
+            });
+
+            // Event listener for reset button - resets all settings to default
+            resetBtn.addEventListener('click', () => {
+                // Reset text formatting
+                overlayText.style.fontFamily = "Arial";
+                overlayText.style.fontSize = "20px";
+                overlayText.style.textAlign = "left";
+                overlayText.value = "";
+
+                // Reset image effects
+                mainImage.style.filter = "none";
+               
+                // Reset all control inputs
+                fontFace.value = "Arial";
+                fontSize.value = 20;
+                textAlign.value = "left";
+
+                // Uncheck all filter options
+                blur.checked = false;
+                grayscale.checked = false;
+                invert.checked = false;
+                overlay.checked = false;
+            });
+        </script>
+    </body>
+
+    </html>
+    

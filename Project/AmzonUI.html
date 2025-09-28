@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amazom UI</title>
+    <script src="https://kit.fontawesome.com/167688fc6a.js" crossorigin="anonymous"></script>
+</head>
+<style>
+    body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background-color: #eaeded;
+    }
+
+    .navbar {
+        background-color: #131921;
+        color: white;
+        display: flex;
+        align-items: center;
+        padding: 10px 20px;
+    }
+
+    .navbar .logo {
+        font-size: 2em;
+        font-weight: bold;
+        margin-right: 30px;
+        color: #ff9900;
+        text-decoration: none;
+    }
+
+    .navbar input[type="text"] {
+        flex: 1;
+        padding: 6.1px;
+        border: none;
+        border-radius: 4px 0 0 4px;
+        font-size: 1em;
+    }
+
+    .navbar button {
+        padding: 8px 16px;
+        border: none;
+        background-color: #febd69;
+        color: #111;
+        border-radius: 0 4px 4px 0;
+        cursor: pointer;
+        font-weight: bold;
+    }
+
+    .navbar .nav-links {
+        margin-left: 30px;
+        display: flex;
+        gap: 20px;
+    }
+
+    .navbar .nav-links a {
+        color: white;
+        text-decoration: none;
+        font-size: 1em;
+        transition: color 0.2s;
+    }
+
+    .navbar .nav-links a:hover {
+        color: #febd69;
+    }
+
+    .categories {
+        background: #232f3e;
+        padding: 0.5px;
+    }
+
+    .categories ul {
+        display: flex;
+        justify-content: center;
+        list-style: none;
+        gap: 80px;
+    }
+
+    .categories a {
+        color: white;
+        text-decoration: none;
+    }
+
+    .categories a:hover {
+        text-decoration: underline;
+        color: #febd69;
+    }
+
+    .hero {
+        background-image: linear-gradient(rgba(0, 0, 0, .4), rgba(20, 30, 64, .2)), url('https://images.unsplash.com/photo-1519125323398-675f0ddb6308?auto=format&fit=crop&w=1500&q=80');
+        background-size: cover;
+        background-position: center;
+        height: 410px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #fff;
+        font-size: 2.5em;
+        font-weight: bold;
+        border-radius: 12px;
+        box-shadow: 0 4px 16px rgba(43, 43, 43, 0.15);
+        letter-spacing: 1px;
+        text-align: center;
+        text-shadow: 0 1px 12px rgba(0, 0, 0, 0.3);
+    }
+
+    .products {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 20px;
+        padding: 0 20px 40px 20px;
+        margin-top: 20px;
+    }
+
+    .product-card {
+        background: white;
+        border-radius: 8px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.07);
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        transition: box-shadow 0.2s;
+    }
+
+    .product-card:hover {
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+    }
+
+    .product-card img {
+        width: 150px;
+        height: 150px;
+        object-fit: contain;
+        margin-bottom: 15px;
+    }
+
+    .product-card h3 {
+        font-size: 1.1em;
+        margin: 10px 0 5px 0;
+        color: #232f3e;
+    }
+
+    .product-card p {
+        font-size: 0.95em;
+        color: #555;
+        margin-bottom: 10px;
+        text-align: center;
+    }
+
+    .product-card .price {
+        font-size: 1.2em;
+        color: #b12704;
+        font-weight: bold;
+        margin-bottom: 10px;
+    }
+
+    .product-card button {
+        background-color: #ffd814;
+        border: none;
+        padding: 8px 16px;
+        border-radius: 4px;
+        font-weight: bold;
+        cursor: pointer;
+        color: #111;
+        transition: background 0.2s;
+    }
+
+    .product-card button:hover {
+        background-color: #febd69;
+    }
+
+    .products {
+        background: linear-gradient(120deg, #f8fafc 60%, #e3e6e6 100%);
+        border-radius: 12px;
+        box-shadow: 0 4px 24px rgba(0, 0, 0, 0.07);
+        margin-bottom: 30px;
+    }
+
+    .product-card {
+        position: relative;
+        overflow: hidden;
+        border: 1px solid #e3e6e6;
+        box-shadow: 0 2px 12px rgba(34, 34, 34, 0.07);
+        transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .product-card::before {
+        content: "";
+        position: absolute;
+        top: -40px;
+        left: -40px;
+        width: 120px;
+        height: 120px;
+        background: radial-gradient(circle, #ffd81433 60%, transparent 100%);
+        z-index: 0;
+        pointer-events: none;
+    }
+
+    .product-card:hover {
+        transform: translateY(-8px) scale(1.03);
+        box-shadow: 0 8px 24px rgba(34, 34, 34, 0.13);
+        border-color: #febd69;
+    }
+
+    .product-card img {
+        border-radius: 8px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.09);
+        background: #f3f4f6;
+        margin-bottom: 18px;
+        transition: transform 0.2s;
+    }
+
+    .product-card:hover img {
+        transform: scale(1.07) rotate(-2deg);
+    }
+
+    .product-card h3 {
+        font-size: 1.18em;
+        font-weight: 700;
+        color: #232f3e;
+        margin-bottom: 6px;
+        letter-spacing: 0.5px;
+        text-shadow: 0 1px 2px #f8fafc;
+    }
+
+    .product-card p {
+        font-size: 1em;
+        color: #444;
+        margin-bottom: 12px;
+        font-style: italic;
+        min-height: 38px;
+    }
+
+    .product-card .price {
+        font-size: 1.25em;
+        color: #b12704;
+        font-weight: bold;
+        margin-bottom: 12px;
+        background: #fff7e6;
+        padding: 4px 12px;
+        border-radius: 6px;
+        box-shadow: 0 1px 4px #ffd81433;
+    }
+
+    .product-card button {
+        background: linear-gradient(90deg, #ffd814 70%, #febd69 100%);
+        border: none;
+        padding: 10px 22px;
+        border-radius: 6px;
+        font-weight: bold;
+        cursor: pointer;
+        color: #232f3e;
+        font-size: 1em;
+        box-shadow: 0 2px 8px #ffd81433;
+        transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+    }
+
+    .product-card button:hover {
+        background: linear-gradient(90deg, #febd69 70%, #ffd814 100%);
+        color: #111;
+        box-shadow: 0 4px 16px #febd6933;
+    }
+    .star-rating {
+        margin-top: 10px;
+    }
+
+    .footer {
+        background: linear-gradient(90deg, #232f3e 60%, #37475a 100%);
+        color: #fff;
+        text-align: center;
+        padding: 32px 0 20px 0;
+        margin-top: 40px;
+        font-size: 1.05em;
+        box-shadow: 0 -2px 12px rgba(0, 0, 0, 0.08);
+        border-top: 2px solid #febd69;
+    }
+
+    .footer .footer-main {
+        margin-bottom: 12px;
+        font-size: 1.15em;
+        font-weight: 600;
+        letter-spacing: 0.5px;
+    }
+
+    .footer .footer-contact {
+        margin-bottom: 10px;
+        font-size: 0.98em;
+    }
+
+    .footer .footer-social {
+        margin-bottom: 10px;
+    }
+
+    .footer .footer-social span {
+        margin-right: 8px;
+        font-weight: 500;
+    }
+
+    .footer .footer-social a {
+        color: #febd69;
+        background: #232f3e;
+        border-radius: 20px;
+        padding: 4px 14px;
+        margin: 0 4px;
+        text-decoration: none;
+        font-weight: 500;
+        transition: background 0.2s, color 0.2s;
+        box-shadow: 0 1px 4px rgba(0, 0, 0, 0.07);
+    }
+
+    .footer .footer-social a:hover {
+        background: #febd69;
+        color: #232f3e;
+    }
+
+    .footer .footer-links {
+        margin-top: 14px;
+        font-size: 0.97em;
+        color: #d5dbdb;
+    }
+
+    .footer .footer-links span {
+        margin: 0 10px;
+        cursor: pointer;
+        transition: color 0.2s;
+    }
+
+    .footer .footer-links span:hover {
+        color: #febd69;
+        text-decoration: underline;
+    }
+</style>
+
+
+<body>
+    <div class="navbar">
+        <img src="Amazon2-removebg-preview.png" alt="Amazon Logo" class="logo" style="height:40px; margin-right:15px;">
+        <input type="text" placeholder="Search Amazon">
+        <button><i class="fa-solid fa-magnifying-glass"></i></button>
+        <div class="nav-links">
+            <i class="fa-solid fa-house"></i><a href="#">Home</a>
+            <i class="fa-solid fa-truck"></i><a href="#">Today's Deals</a>
+            <i class="fa-solid fa-phone"></i><a href="#">Customer Service</a>
+            <i class="fa-solid fa-cart-plus"></i><a href="#">Cart</a>
+            <i class="fa-solid fa-circle-user"></i><a href="#">Sign In</a>
+        </div>
+    </div>
+    <div class="categories">
+        <ul>
+            <li><a href="#">Electronics</a></li>
+            <li><a href="#">Fashion</a></li>
+            <li><a href="#">Books</a></li>
+            <li><a href="#">Home & Kitchen</a></li>
+            <li><a href="#">Toys & Games</a></li>
+            <li><a href="#">Sports & Outdoors</a></li>
+            <li><a href="#">Mx player</a></li>
+            <li><a href="#">Amazon Pay</a></li>
+            <li><a href="#">Sell</a></li>
+        </ul>
+    </div>
+
+
+    <div class="hero">
+        Welcome to Amazon! Shop the best deals today.
+    </div>
+    <!-- Add a top banner for a limited-time offer -->
+    <div
+        style="background:linear-gradient(90deg,#ffd814 60%,#febd69 100%);color:#232f3e;text-align:center;padding:10px 0;font-weight:600;font-size:1.1em;box-shadow:0 2px 8px #ffd81433;">
+        <i class="fa-solid fa-bolt"></i> Limited Time Offer: Free Shipping on orders over $50! <i
+            class="fa-solid fa-truck-fast"></i>
+    </div>
+    
+    <div class="products">
+        <div class="product-card">
+            <img src="mobile1.jpg" alt="Smart Phone">
+            <h3>Smart phone</h3>
+            <p>High quality Camera, long battery life and storage.</p>
+            <div class="price">$59.99</div>
+            <button>Add to Cart</button>
+            <div class="star-rating">
+                <i class="fa-solid fa-star" style="color: #FFD814;"></i>
+                <i class="fa-solid fa-star" style="color: #FFD814;"></i>
+                <i class="fa-solid fa-star" style="color: #FFD814;"></i>
+                <i class="fa-solid fa-star-half-alt" style="color: #FFD814;"></i>
+                <i class="fa-regular fa-star" style="color: #FFD814;"></i>
+            </div>
+        </div>
+        <div class="product-card">
+            <img src="watch.jpg" alt="Smart Watch">
+            <h3>Smart Watch</h3>
+            <p>Track your fitness and notifications.</p>
+            <div class="price">$129.99</div>
+            <button>Add to Cart</button>
+            <div class="star-rating">
+                <i class="fa-solid fa-star" style="color: #FFD814;"></i>
+                <i class="fa-solid fa-star" style="color: #FFD814;"></i>
+                <i class="fa-solid fa-star" style="color: #FFD814;"></i>
+                <i class="fa-solid fa-star-half-alt" style="color: #FFD814;"></i>
+                <i class="fa-regular fa-star" style="color: #FFD814;"></i>
+            </div>
+        </div>
+        <div class="product-card">
+            <img src="camera.jpg" alt="Camera">
+            <h3>Digital Camera</h3>
+            <p>Capture your moments in HD.</p>
+            <div class="price">$299.99</div>
+            <button>Add to Cart</button>
+            <div class="star-rating">
+                <i class="fa-solid fa-star" style="color: #FFD814;"></i>
+                <i class="fa-solid fa-star" style="color: #FFD814;"></i>
+                <i class="fa-solid fa-star" style="color: #FFD814;"></i>
+                <i class="fa-solid fa-star-half-alt" style="color: #FFD814;"></i>
+                <i class="fa-regular fa-star" style="color: #FFD814;"></i>
+            </div>
+        </div>
+        <div class="product-card">
+            <img src="lcd.jpg" alt="Smart TV">
+            <h3>Smart Tv</h3>
+            <p>Feel HD moments</p>
+            <div class="price">$149.99</div>
+            <button>Add to Cart</button>
+            <div class="star-rating">
+                <i class="fa-solid fa-star" style="color: #FFD814;"></i>
+                <i class="fa-solid fa-star" style="color: #FFD814;"></i>
+                <i class="fa-solid fa-star" style="color: #FFD814;"></i>
+                <i class="fa-solid fa-star-half-alt" style="color: #FFD814;"></i>
+                <i class="fa-regular fa-star" style="color: #FFD814;"></i>
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+        <div class="footer-main">
+            &copy; 2025 Amazon UI Clone. All rights reserved.
+        </div>
+        <div class="footer-contact">
+            Contact us: <a href="mailto:support@amazonclone.com" style="color:#febd69;">support@amazonclone.com</a> | <a
+                href="tel:+18001234567" style="color:#febd69;">+1-800-123-4567</a>
+        </div>
+        <div class="footer-social">
+            <span>Follow us:</span>
+            <a href="#"><i class="fa-brands fa-facebook-f"></i> Facebook</a>
+            <a href="#"><i class="fa-brands fa-twitter"></i> Twitter</a>
+            <a href="#"><i class="fa-brands fa-instagram"></i> Instagram</a>
+        </div>
+        <div class="footer-links">
+            <span>Terms of Service</span> | <span>Privacy Policy</span>
+        </div>
+    </div>
+
+
+</body>
+
+</html>
