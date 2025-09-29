@@ -14,18 +14,20 @@ body {
 }
 
 /* Sidebar */
-.sidebar {
-    padding: 15px;
-    overflow-y: auto;
-    background: #f4f4f4;
-}
-/* Controls */
+.sidebar,
 .controls {
-    background: #dda757;
+    background: #f4f4f4;
     padding: 15px;
     overflow-y: auto;
 }
-/* Thumbnails */
+
+.controls {
+    background: #daa363;
+    padding: 15px;
+    overflow-y: auto;
+
+}
+
 .thumbnails img {
     width: 100%;
     margin: 5px 0;
@@ -69,22 +71,22 @@ body {
     width: 80%;
     text-align: left;
 }
-.font-effects, .image-effects {
+
+.font-effects,
+.image-effects {
     margin-bottom: 20px;
     padding: 10px;
-    background: #e8cb97;
+    background: #edbe89;
     border-radius: 5px;
-    box-shadow: 0 0 5px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     margin-top: 45px;
 }
+
 button {
-    width: 50%;
-    padding: 10px;
-    margin-top: 10px;
-    border: none;
+    padding: 10px 15px;
     background: #007bff;
     color: white;
-    font-size: 16px;
-    cursor: pointer;
+    border: none;
     border-radius: 5px;
+    cursor: pointer;
 }
