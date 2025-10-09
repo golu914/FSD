@@ -6,7 +6,7 @@ function buaJi(a, b){
 }
 // function expression
 let shopping= function (a,b){
-    console.log("Let's buy something of "+ (a+b) +" Rupee")
+    console.log("Let's buy something of "+ (a+b) +" Rupees")
 }
 // arrow function
 let addition= (a,b)=>console.log(a+b)
@@ -16,7 +16,7 @@ let prashant= buaJi(5,5)
 shopping(shatunu,prashant)
 addition(8,9)
 */
-/*
+
 function money(a,b){
     // console.log(a+b)
     return a+b;
@@ -32,9 +32,9 @@ let expense=(a,b)=>{
 let totalMoney= money(5,10);
 let remaining= expense(totalMoney,10);
 console.log(remaining);
-*/
 
 
+/*
 let mul=function (a,b){
     return a*b;
 }
@@ -47,3 +47,4 @@ let multiplication= mul(5,10);
 console.log(multiplication);
 console.log(divideByFive(multiplication));
 console.log(divideByTwo(multiplication))
+*/

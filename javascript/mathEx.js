@@ -9,5 +9,5 @@ console.log(Math.ceil(4.625))//5
 console.log(Math.ceil(2.125))//3
 console.log(Math.ceil(-2.125))//-2
 console.log(Math.floor(4.625))//4
-console.log(Math.floor(-2.125))//3
+console.log(Math.floor(-2.125))//-3
 console.log(Math.trunc(4.258))//4
