@@ -50,10 +50,10 @@ while (start < end) {
     start++;
     end--;
 }
-if (flag) {
-    console.log("palindrome")
+if (palindrome) {
+    console.log("True")
 }
 else {
-    console.log("not a palindrome")
+    console.log("False")
 }
 
