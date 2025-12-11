@@ -1,4 +1,4 @@
-/*
+
 let arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]; // size of array will be 1<=size<=n. , n=2^31+1
 // two pointer
 let start=0;
@@ -36,6 +36,7 @@ while (start < end) {
 }
 console.log(arr.join(""))
 */
+/*
 //palindrome using two pointer
 let str = "eve";
 let arr = str.split("");
@@ -56,4 +57,4 @@ if (palindrome) {
 else {
     console.log("False")
 }
-
+*/
