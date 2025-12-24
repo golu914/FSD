@@ -102,7 +102,7 @@ Input:
 Two integers L and R (1 ≤ L ≤ R ≤ 10⁶).
 Output:
 Print all palindrome numbers in the range L to R, space-separated.
-*/
+
 function palindrome(a){
 let p=0
 let q=a.length-1
@@ -131,7 +131,7 @@ const L = 10;
 const R = 100;
 const palindromesInRange = palindrome(L, R);
 console.log(`Palindromic numbers between ${L} and ${R}:`, palindromesInRange.join(' ')); // Output: Palindromic numbers between 10 and 100: 11 22 33 44 55 66 77 88 99  
-
+*/
 /*Question 6: 
 A sports analytics team is analyzing the scores of players in a tournament. They want to find the second-best and second-worst scores to evaluate performance trends. Can you help them by writing a software program?
 Input:
@@ -194,15 +194,14 @@ Second line contains N space-separated integers representing luggage IDs.
 Output:
 Print the rotated array.
 */
-for (i = 0; i < K; i++){
-    let ele = arr.shift()
-    arr.push(ele)
+function rotate(n,k,nums){
+    for(let i=0;i<k;i++ ){
+        let ele=nums.shift();
+        nums.push(ele)
+    }
+    return nums;
 }
-// Example usage:
-const luggageIDs = [1, 2, 3, 4, 5, 6, 7];
-const K = 3;
-const rotatedLuggage = blockSwapRotate(luggageIDs, K);
-console.log("Rotated luggage IDs:", rotatedLuggage); // Output: Rotated luggage IDs: [4, 5, 6, 7, 1, 2, 3]
+console.log(rotate(5,2,[10,20,30 ,40 ,50] ))
 
 /*Question 9:An investment bank needs to analyze the median stock price over a period to make financial decisions. Write a program to help them.
 Input:
@@ -222,7 +221,7 @@ function findMedian(prices) {
     }
 }
 // Example usage:
-const stockPrices = [10, 20, 30, 40, 50,60];
+const stockPrices = [10, 20, 30, 40, 50];
 const medianPrice = findMedian(stockPrices);
 console.log("The median stock price is:", medianPrice); // Output: The median stock price is: 30
 
